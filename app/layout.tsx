@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: '3D Stands Map',
-  description: 'Interactive 3D stands map built with React Three Fiber',
+  description: 'Interactive 3D stands map made by CHOUBIK Houssam | ADE ENSAM Casablanca 2025'
 }
 
 export const viewport: Viewport = {
