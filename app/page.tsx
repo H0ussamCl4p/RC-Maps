@@ -63,141 +63,122 @@ export default function Page() {
       sizeMeters: [400, 300],  // 400m × 300m outer dimensions
       unavailableInnerMeters: [320, 220],  // 320m × 220m inner unavailable area
     },
-    // Top border (outside) - 2 stands (T1 and T2 on outer line)
-    {
-      id: 2,
-      name: 'S1',
-      position: [-2.5, 0, -3.5],  // Outside top, left side (z=0, on ground)
-      color: '#3b82f6',
-      available: true,
-      sizeMeters: [36, 36],  // 36m × 36m cube (doubled)
-    },
-    {
-      id: 3,
-      name: 'S2',
-      position: [2.5, 0, -3.5],  // Outside top, right side (z=0, on ground)
-      color: '#3b82f6',
-      available: true,
-      sizeMeters: [36, 36],  // 36m × 36m cube (doubled)
-    },
-    // Conference room (behind T1 and T2)
+    // Conference room (behind top border)
     {
       id: 19,
       name: 'Salle conférence',
-      position: [0, 0, -5.5],  // Behind T1 and T2 (z=0, on ground)
+      position: [0, 0, -5.5],  // Behind top border
       color: '#8b5cf6',
       available: false,  // Not available as a stand
       sizeMeters: [200, 60],  // Wide rectangle: 200m × 60m
     },
-    // Left border (outside) - 2 stands
+    // Top border (outside) - 4 stands (evenly spaced)
     {
-      id: 6,
-      name: 'S3',
-      position: [-4.5, 0, -1.5],  // Outside left, top (z=0, on ground)
+      id: 1,
+      name: 'S1',
+      position: [-4.5, 0, -3.5],  // Top-left corner
       color: '#ef4444',
       available: true,
-      sizeMeters: [36, 36],  // 36m × 36m cube (doubled)
+      sizeMeters: [36, 36],  // 36m × 36m cube
+    },
+    {
+      id: 2,
+      name: 'S2',
+      position: [-1.5, 0, -3.5],  // Outside top, left-center
+      color: '#3b82f6',
+      available: true,
+      sizeMeters: [36, 36],  // 36m × 36m cube
+    },
+    {
+      id: 3,
+      name: 'S3',
+      position: [1.5, 0, -3.5],  // Outside top, right-center
+      color: '#06b6d4',
+      available: true,
+      sizeMeters: [36, 36],  // 36m × 36m cube
+    },
+    {
+      id: 4,
+      name: 'S4',
+      position: [4.5, 0, -3.5],  // Top-right corner
+      color: '#f59e0b',
+      available: true,
+      sizeMeters: [36, 36],  // 36m × 36m cube
+    },
+    // Right border (outside) - 2 stands (evenly spaced between corners)
+    {
+      id: 5,
+      name: 'S5',
+      position: [4.5, 0, -1.17],  // Outside right, upper
+      color: '#06b6d4',
+      available: true,
+      sizeMeters: [36, 36],  // 36m × 36m cube
+    },
+    {
+      id: 6,
+      name: 'S6',
+      position: [4.5, 0, 1.17],  // Outside right, lower
+      color: '#f97316',
+      available: true,
+      sizeMeters: [36, 36],  // 36m × 36m cube
     },
     {
       id: 7,
-      name: 'S4',
-      position: [-4.5, 0, 1.5],  // Outside left, bottom (z=0, on ground)
-      color: '#ef4444',
-      available: true,
-      sizeMeters: [36, 36],  // 36m × 36m cube (doubled)
-    },
-    // Right border (outside) - 2 stands
-    {
-      id: 8,
-      name: 'S5',
-      position: [4.5, 0, -1.5],  // Outside right, top (z=0, on ground)
+      name: 'S7',
+      position: [4.5, 0, 3.5],  // Bottom-right corner
       color: '#f59e0b',
       available: true,
-      sizeMeters: [36, 36],  // 36m × 36m cube (doubled)
+      sizeMeters: [36, 36],  // 36m × 36m cube
+    },
+    // Bottom border (outside) - 4 stands (evenly spaced)
+    {
+      id: 8,
+      name: 'S8',
+      position: [2.25, 0, 3.5],  // Outside bottom, right area
+      color: '#ec4899',
+      available: true,
+      sizeMeters: [36, 36],  // 36m × 36m cube
     },
     {
       id: 9,
-      name: 'S6',
-      position: [4.5, 0, 1.5],  // Outside right, bottom (z=0, on ground)
-      color: '#f59e0b',
+      name: 'S9',
+      position: [0, 0, 3.5],  // Outside bottom, center
+      color: '#8b5cf6',
       available: true,
-      sizeMeters: [36, 36],  // 36m × 36m cube (doubled)
+      sizeMeters: [36, 36],  // 36m × 36m cube
     },
-    // Top inner border - 2 stands (IT1 and IT2 on inner line, parallel to T1 and T2)
     {
       id: 10,
-      name: 'S7',
-      position: [-2.5, 0, -2.3],  // Inner top border (available space), left (z=0, on ground) - parallel to T1
-      color: '#06b6d4',
+      name: 'S10',
+      position: [-2.25, 0, 3.5],  // Outside bottom, left area
+      color: '#ec4899',
       available: true,
-      sizeMeters: [36, 36],  // 36m × 36m cube (doubled)
+      sizeMeters: [36, 36],  // 36m × 36m cube
     },
     {
       id: 11,
-      name: 'S8',
-      position: [2.5, 0, -2.3],  // Inner top border (available space), right (z=0, on ground) - parallel to T2
-      color: '#06b6d4',
+      name: 'S11',
+      position: [-4.5, 0, 3.5],  // Bottom-left corner
+      color: '#ef4444',
       available: true,
-      sizeMeters: [36, 36],  // 36m × 36m cube (doubled)
+      sizeMeters: [36, 36],  // 36m × 36m cube
     },
-    // Bottom inner border - 3 stands
+    // Left border (outside) - 2 stands (evenly spaced between corners)
     {
       id: 12,
-      name: 'S9',
-      position: [-2.5, 0, 2.3],  // Inner bottom border (available space), left (z=0, on ground)
-      color: '#ec4899',
+      name: 'S12',
+      position: [-4.5, 0, 1.17],  // Outside left, lower
+      color: '#14b8a6',
       available: true,
-      sizeMeters: [36, 36],  // 36m × 36m cube (doubled)
-    },
-    {
-      id: 18,
-      name: 'S10',
-      position: [0, 0, 2.3],  // Inner bottom border center, between IB1 and IB2
-      color: '#ec4899',
-      available: true,
-      sizeMeters: [36, 36],  // 36m × 36m cube (doubled)
+      sizeMeters: [36, 36],  // 36m × 36m cube
     },
     {
       id: 13,
-      name: 'S11',
-      position: [2.5, 0, 2.3],  // Inner bottom border (available space), right (z=0, on ground)
-      color: '#ec4899',
-      available: true,
-      sizeMeters: [36, 36],  // 36m × 36m cube (doubled)
-    },
-    // Left inner border - 2 stands
-    {
-      id: 14,
-      name: 'S12',
-      position: [-3.5, 0, -1],  // Inner left border (available space), top (z=0, on ground)
-      color: '#84cc16',
-      available: true,
-      sizeMeters: [36, 36],  // 36m × 36m cube (doubled)
-    },
-    {
-      id: 15,
       name: 'S13',
-      position: [-3.5, 0, 1],  // Inner left border (available space), bottom (z=0, on ground)
-      color: '#84cc16',
+      position: [-4.5, 0, -1.17],  // Outside left, upper
+      color: '#a855f7',
       available: true,
-      sizeMeters: [36, 36],  // 36m × 36m cube (doubled)
-    },
-    // Right inner border - 2 stands
-    {
-      id: 16,
-      name: 'S14',
-      position: [3.5, 0, -1],  // Inner right border (available space), top (z=0, on ground)
-      color: '#f97316',
-      available: true,
-      sizeMeters: [36, 36],  // 36m × 36m cube (doubled)
-    },
-    {
-      id: 17,
-      name: 'S15',
-      position: [3.5, 0, 1],  // Inner right border (available space), bottom (z=0, on ground)
-      color: '#f97316',
-      available: true,
-      sizeMeters: [36, 36],  // 36m × 36m cube (doubled)
+      sizeMeters: [36, 36],  // 36m × 36m cube
     },
   ], [])
 
