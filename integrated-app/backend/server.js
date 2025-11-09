@@ -863,10 +863,10 @@ app.get('/api/health', (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log('\n🎓 ENSAM Event Management System');
   console.log('📡 Server running on http://localhost:' + PORT);
-  console.log('� Secure admin authentication enabled\n');
+  console.log('🔒 Secure admin authentication enabled\n');
 });
 
 // Global error handlers
