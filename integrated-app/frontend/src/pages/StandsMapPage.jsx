@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { Home, ArrowLeft } from 'lucide-react';
 import axios from 'axios';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+
 // Stand Marker Component
 function StandMarker({ stand }) {
   const [hovered, setHovered] = useState(false);
@@ -150,7 +152,7 @@ function StandsMapPage() {
 
   const fetchStands = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/stands');
+      const response = await axios.get(`${API_BASE_URL}/api/stands`);
       setStands(response.data);
       setLoading(false);
     } catch (err) {

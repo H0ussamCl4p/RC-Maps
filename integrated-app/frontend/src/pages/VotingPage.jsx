@@ -5,7 +5,7 @@ import { Ticket, CheckCircle, X, ArrowLeft, Home, Heart, Vote as VoteIcon } from
 
 function VotingPage() {
   const navigate = useNavigate();
-  const API_BASE_URL = 'http://localhost:5000';
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
   const [step, setStep] = useState('enter-code'); // 'enter-code', 'select-club', 'success'
   const [ticketCode, setTicketCode] = useState('');
   const [student, setStudent] = useState(null);
