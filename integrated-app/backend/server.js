@@ -125,14 +125,15 @@ function initDatabase() {
           
           db.run(
             'INSERT INTO admins (username, password, role) VALUES (?, ?, ?)',
-            [defaultUsername, hashedPassword, 'admin'],
+            [defaultUsername, hashedPassword, 'superadmin'],
             (err) => {
               if (err) {
                 console.error('❌ Error creating default admin:', err);
               } else {
-                console.log('✅ Default admin created:');
+                console.log('✅ Default superadmin created:');
                 console.log('   Username:', defaultUsername);
                 console.log('   Password:', defaultPassword);
+                console.log('   Role: superadmin');
                 console.log('   ⚠️  CHANGE THIS PASSWORD IN PRODUCTION!');
               }
             }
