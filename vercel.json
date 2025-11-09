@@ -1,0 +1,17 @@
+{
+  "builds": [
+    {
+      "src": "integrated-app/frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "integrated-app/frontend/dist"
+      }
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/integrated-app/frontend/dist/index.html"
+    }
+  ]
+}
