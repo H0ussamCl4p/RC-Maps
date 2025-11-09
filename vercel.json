@@ -2,5 +2,11 @@
   "buildCommand": "cd integrated-app/frontend && npm install && npm run build",
   "outputDirectory": "integrated-app/frontend/dist",
   "installCommand": "npm install --prefix integrated-app/frontend",
-  "framework": null
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }
