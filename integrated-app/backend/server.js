@@ -49,29 +49,16 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Rate limiting - More permissive for production use
+// Rate limiting disabled for unlimited access
+// Uncomment below if you want to re-enable rate limiting in the future
+/*
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 1000, // limit each IP to 1000 requests per 15 minutes
+  windowMs: 15 * 60 * 1000,
+  max: 1000,
   message: 'Too many requests from this IP, please try again later.'
 });
 app.use('/api/', limiter);
-
-// Admin rate limiting (more permissive for admin operations)
-const adminLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 2000, // limit each IP to 2000 requests per 15 minutes for admin routes
-  message: 'Too many admin requests, please try again later.'
-});
-app.use('/api/admin/', adminLimiter);
-
-// Strict rate limiting for voting (keep this strict to prevent abuse)
-const voteLimiter = rateLimit({
-  windowMs: 60 * 1000, // 1 minute
-  max: 10, // 10 votes per minute (increased from 5)
-  message: 'Too many voting attempts, please wait a moment.'
-});
-app.use('/api/vote/', voteLimiter);
+*/
 
 // Resolve absolute path for the SQLite DB to avoid working-directory issues
 const __filename = fileURLToPath(import.meta.url);
