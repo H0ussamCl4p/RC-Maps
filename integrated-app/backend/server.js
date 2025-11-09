@@ -482,9 +482,10 @@ app.delete('/api/admin/clubs/all', authenticateToken, async (req, res) => {
   console.log('=== DELETE /api/admin/clubs/all endpoint called ===');
   console.log('User role:', req.user ? req.user.role : 'undefined');
 
-  if (req.user.role !== 'superadmin') {
-    console.log('Access denied: user is not superadmin');
-    return res.status(403).json({ error: 'Only superadmin can delete all clubs' });
+  // Allow both admin and superadmin to delete clubs
+  if (req.user.role !== 'superadmin' && req.user.role !== 'admin') {
+    console.log('Access denied: user is not admin or superadmin');
+    return res.status(403).json({ error: 'Admin access required' });
   }
 
   console.log('Starting deletion of all clubs...');
@@ -730,9 +731,10 @@ app.delete('/api/admin/students/all', authenticateToken, async (req, res) => {
   console.log('=== DELETE /api/admin/students/all endpoint called ===');
   console.log('User role:', req.user ? req.user.role : 'undefined');
 
-  if (req.user.role !== 'superadmin') {
-    console.log('Access denied: user is not superadmin');
-    return res.status(403).json({ error: 'Only superadmin can delete all students' });
+  // Allow both admin and superadmin to delete students
+  if (req.user.role !== 'superadmin' && req.user.role !== 'admin') {
+    console.log('Access denied: user is not admin or superadmin');
+    return res.status(403).json({ error: 'Admin access required' });
   }
 
   console.log('Starting deletion of all students...');
@@ -834,8 +836,9 @@ app.get('/api/admin/students/count', authenticateToken, (req, res) => {
 
 // Reset votes
 app.post('/api/admin/reset-votes', authenticateToken, (req, res) => {
-  if (req.user.role !== 'superadmin') {
-    return res.status(403).json({ error: 'Only superadmin can reset votes' });
+  // Allow both admin and superadmin to reset votes
+  if (req.user.role !== 'superadmin' && req.user.role !== 'admin') {
+    return res.status(403).json({ error: 'Admin access required' });
   }
 
   db.serialize(() => {
