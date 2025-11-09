@@ -134,7 +134,12 @@ function VotingPage() {
                 <ArrowLeft size={18} className="sm:w-5 sm:h-5" />
                 <span className="hidden sm:inline">Retour</span>
               </button>
-              <h1 className="text-base sm:text-xl font-black bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent">Votez Maintenant</h1>
+              <div className="flex flex-col items-center gap-1">
+                <div className="text-xs sm:text-sm font-black bg-gradient-to-r from-red-600 to-green-600 bg-clip-text text-transparent">
+                  ADE ENSAMC
+                </div>
+                <h1 className="text-base sm:text-xl font-black bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent">Votez Maintenant</h1>
+              </div>
               <button
                 onClick={() => navigate('/')}
                 className="flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl hover:from-green-500 hover:to-emerald-500 transition-all duration-300 text-sm sm:text-base font-bold shadow-lg shadow-green-500/30"
@@ -231,7 +236,12 @@ function VotingPage() {
               <ArrowLeft size={18} className="sm:w-5 sm:h-5" />
               <span className="hidden sm:inline">Retour</span>
             </button>
-            <h1 className="text-base sm:text-xl font-black bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent">Entrez votre code</h1>
+            <div className="flex flex-col items-center gap-1">
+              <div className="text-xs sm:text-sm font-black bg-gradient-to-r from-red-600 to-green-600 bg-clip-text text-transparent">
+                ADE ENSAMC
+              </div>
+              <h1 className="text-base sm:text-xl font-black bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent">Entrez votre code</h1>
+            </div>
             <button
               onClick={() => navigate('/')}
               className="flex items-center gap-1 sm:gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-xl hover:from-green-500 hover:to-emerald-500 transition-all duration-300 text-sm sm:text-base font-bold shadow-lg shadow-green-500/30"

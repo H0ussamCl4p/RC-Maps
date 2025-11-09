@@ -17,7 +17,13 @@ function HomePage() {
       {/* Header */}
       <header className="bg-white/95 backdrop-blur-xl shadow-md relative z-10 border-b border-red-500">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-3">
-          <div className="flex justify-end items-center">
+          <div className="flex justify-between items-center">
+            {/* Left side - ADE ENSAMC */}
+            <div className="text-lg sm:text-xl lg:text-2xl font-black bg-gradient-to-r from-red-600 to-green-600 bg-clip-text text-transparent">
+              ADE ENSAMC
+            </div>
+            
+            {/* Right side - Admin Button */}
             <button
               onClick={() => navigate('/admin')}
               className="relative flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 bg-gradient-to-r from-red-600 to-red-700 text-white rounded-lg hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-md shadow-red-500/30 hover:shadow-lg hover:shadow-red-500/40 text-xs sm:text-sm font-bold group overflow-hidden"
