@@ -1,17 +1,6 @@
 {
-  "builds": [
-    {
-      "src": "integrated-app/frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "integrated-app/frontend/dist"
-      }
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/integrated-app/frontend/dist/index.html"
-    }
-  ]
+  "buildCommand": "cd integrated-app/frontend && npm install && npm run build",
+  "outputDirectory": "integrated-app/frontend/dist",
+  "installCommand": "npm install --prefix integrated-app/frontend",
+  "framework": null
 }
