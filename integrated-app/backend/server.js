@@ -49,24 +49,27 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Rate limiting
+// Rate limiting - More permissive for production use
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100 // limit each IP to 100 requests per windowMs
+  max: 1000, // limit each IP to 1000 requests per 15 minutes
+  message: 'Too many requests from this IP, please try again later.'
 });
 app.use('/api/', limiter);
 
 // Admin rate limiting (more permissive for admin operations)
 const adminLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 500 // limit each IP to 500 requests per windowMs for admin routes
+  max: 2000, // limit each IP to 2000 requests per 15 minutes for admin routes
+  message: 'Too many admin requests, please try again later.'
 });
 app.use('/api/admin/', adminLimiter);
 
-// Strict rate limiting for voting
+// Strict rate limiting for voting (keep this strict to prevent abuse)
 const voteLimiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
-  max: 5 // 5 votes per minute
+  max: 10, // 10 votes per minute (increased from 5)
+  message: 'Too many voting attempts, please wait a moment.'
 });
 app.use('/api/vote/', voteLimiter);
 
