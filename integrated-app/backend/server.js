@@ -125,7 +125,31 @@ function initDatabase() {
       password TEXT NOT NULL,
       role TEXT DEFAULT 'admin',
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    )`);
+    )`, () => {
+      // Create default admin user if none exists
+      db.get('SELECT COUNT(*) as count FROM admins', (err, row) => {
+        if (!err && row.count === 0) {
+          const defaultUsername = 'Sailing';
+          const defaultPassword = 'Sailing2025';
+          const hashedPassword = bcrypt.hashSync(defaultPassword, 10);
+          
+          db.run(
+            'INSERT INTO admins (username, password, role) VALUES (?, ?, ?)',
+            [defaultUsername, hashedPassword, 'admin'],
+            (err) => {
+              if (err) {
+                console.error('❌ Error creating default admin:', err);
+              } else {
+                console.log('✅ Default admin created:');
+                console.log('   Username:', defaultUsername);
+                console.log('   Password:', defaultPassword);
+                console.log('   ⚠️  CHANGE THIS PASSWORD IN PRODUCTION!');
+              }
+            }
+          );
+        }
+      });
+    });
 
     // Votes table
     db.run(`CREATE TABLE IF NOT EXISTS votes (
